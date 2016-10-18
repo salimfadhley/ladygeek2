@@ -7,6 +7,6 @@ object Main extends App {
 
   val sd = new SourceData()
 
-  println(sd.data)
+  println(sd.mixed_data)
 
 }

@@ -10,8 +10,7 @@ import scala.io.Source
   * Created by sal on 17/10/16.
   */
 class SourceData {
-  lazy val data:Map[String,Map[String,Double]] = SourceData.loadData("/inputs/input_data.csv")
-
+  lazy val mixed_data:Map[String,Map[String,Double]] = SourceData.loadData("/inputs/input_data.csv")
 
 }
 
@@ -29,21 +28,10 @@ object SourceData {
 
   def convertRow(input:Map[String,ConvertibleThing]):(String,Map[String,Double]) = {
     val company:String = input("company").s
-
     println(s"Converting $company")
-
     val fields = input.keys.filterNot(_=="company")
-
-
     val items = fields.map{(s: String) => (s, SourceData.extractDouble(input, s))
-
-
     }.toMap
-
-
-
-
-
     (company, items)
   }
 
