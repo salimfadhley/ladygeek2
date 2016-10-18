@@ -11,4 +11,12 @@ package object empathy {
     inp.map((x: (String, String)) => (x._1, ConvertibleThing(x._2)))
   }
 
+  implicit def weighting(weights:List[Double]):Weighting = {
+    Weighting(weights)
+  }
+
+  implicit def weightings(weightings:Map[String,Weighting]):Weightings = {
+    Weightings(weightings)
+  }
+
 }
