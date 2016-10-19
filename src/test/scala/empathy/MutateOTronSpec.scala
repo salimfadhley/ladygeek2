@@ -35,4 +35,32 @@ class MutateOTronSpec extends FlatSpec with Matchers {
     assert(r.weights.head == 1.0)
   }
 
+  it should "be ale to add an extra coefficient" in {
+    val m = new MutateOTron()
+    val w:Weighting = List(1.0)
+    val r = m.extend(w, tweak_range = 0.0)
+    assert(r.weights.size == 2)
+  }
+
+  it should "be ale to reduce a coefficient" in {
+    val m = new MutateOTron()
+    val w:Weighting = List(1.0)
+    val r = m.reduce(w)
+    assert(r.weights.size == 0)
+  }
+
+  it should "reduce should not modify an empty list" in {
+    val m = new MutateOTron()
+    val w:Weighting = List()
+    val r = m.reduce(w)
+    assert(r.weights.size == 0)
+  }
+
+  it should "be able to mutate weightings" in {
+    val m = new MutateOTron(extend_prob=0.05, reduce_prob=0.05, tweak_prob=0.05, jumble_prob=0.05, flip_prob=0.05)
+    val ws:Weightings = weightings(Map("A"->List(1.0, 1.0, 1.0), "B"->List(0.0, 0.0, 0.0)))
+    val rs = m.mutate(ws)
+    assert(ws.weightings.keys==rs.weightings.keys)
+  }
+
 }
