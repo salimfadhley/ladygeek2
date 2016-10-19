@@ -28,10 +28,9 @@ class ScoringSpec extends FlatSpec with Matchers {
     val w:Weightings = Weightings.make(columns=List("A", "B", "C"), default = 2.0, coefficents = 2, fuzz = 0.0)
     val res:Map[String,Double] = Scoring.scoreRows(rows=rows, weightings=w)
     assert(res==Map("x"->18.0))
-
-
-
   }
+
+
 
 
 }
