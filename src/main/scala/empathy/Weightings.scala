@@ -18,7 +18,7 @@ case class Weightings(weightings:Map[String,Weighting]) {
 
 object Weightings {
   def applyFuzz(i: Double, fuzz: Double): Double = i + ( util.Random.nextDouble() - 0.5 ) * fuzz
-  def make(columns: List[String], default: Double=0.0, coefficents: Int=3, fuzz: Double=0): Map[String, Weighting] = {
+  def make(columns: List[String], default: Double=0.0, coefficents: Int=3, fuzz: Double=0): Weightings = {
     columns.map(c=>{
       (c, weighting((0 until coefficents).map((i: Int) =>applyFuzz(default, fuzz)).toList))
     }).toMap

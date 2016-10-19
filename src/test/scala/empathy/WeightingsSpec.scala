@@ -26,7 +26,6 @@ class WeightingsSpec extends FlatSpec with Matchers {
     }
   }
 
-
   it should "be creatable with the make method" in {
     val w:Weightings = Weightings.make(default=1.0, coefficents=3, columns=List("A", "B", "C"), fuzz=0.0)
     assert(w.weightings.keys.toList == List("A", "B", "C"))

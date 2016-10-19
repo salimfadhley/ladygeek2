@@ -10,12 +10,15 @@ import scala.io.Source
   * Created by sal on 17/10/16.
   */
 class SourceData {
-  lazy val mixed_data:Map[String,Map[String,Double]] = SourceData.loadData("/inputs/input_data.csv")
+
+  lazy val mixed_data:SourceData.MixedData = SourceData.loadData("/inputs/input_data.csv")
 
 }
 
 object SourceData {
-  def extractDouble(input: Map[String, ConvertibleThing], s: String) = {
+  type MixedData = Map[String,Map[String,Double]]
+
+  def extractDouble(input: Map[String, ConvertibleThing], s: String):Double = {
     val item = input(s)
 
     try {
@@ -35,7 +38,7 @@ object SourceData {
     (company, items)
   }
 
-  def loadData(inputFilename:String): Map[String, Map[String, Double]] = {
+  def loadData(inputFilename:String): MixedData = {
     val stream = Option(getClass.getResourceAsStream(inputFilename))
 
     val data = stream match {
