@@ -27,4 +27,17 @@ class WeightingsSpec extends FlatSpec with Matchers {
   }
 
 
+  it should "be creatable with the make method" in {
+    val w:Weightings = Weightings.make(default=1.0, coefficents=3, columns=List("A", "B", "C"), fuzz=0.0)
+    assert(w.weightings.keys.toList == List("A", "B", "C"))
+    assert(w.weightings.values.flatMap((w: Weighting) =>w.weights).sum==9)
+  }
+
+  it should "be default to a weight of zero" in {
+    val w:Weightings = Weightings.make(columns=List("A", "B", "C"), coefficents=3, fuzz=0.0)
+    assert(w.weightings.keys.toList == List("A", "B", "C"))
+    assert(w.weightings.values.flatMap((w: Weighting) =>w.weights).sum==0)
+  }
+
+
 }
