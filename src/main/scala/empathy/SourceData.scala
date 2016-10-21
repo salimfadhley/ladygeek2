@@ -11,7 +11,13 @@ import scala.io.Source
   */
 class SourceData {
 
+
+
   lazy val mixed_data:SourceData.MixedData = SourceData.loadData("/inputs/input_data.csv")
+
+  def getColumns(): List[String] = {
+    mixed_data.valuesIterator.flatMap(_.keysIterator).toSet.toList
+  }
 
 }
 

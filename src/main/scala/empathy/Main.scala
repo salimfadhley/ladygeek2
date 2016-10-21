@@ -5,8 +5,17 @@ package empathy
   */
 object Main extends App {
 
-  val sd = new SourceData()
+  val e = new Evolver[SourceData.MixedData, Weightings]
+  val sd = new SourceData
+  val m = new MutateOTron()
+  val f = new RankingFitness()
 
-  println(sd.mixed_data)
+  val columnNames:List[String] = sd.getColumns()
+
+
+  val ws = Weightings.make(columnNames)
+
+  val result = e.multiEvolve( 100, sd.mixed_data, 100, ws, m.mutate, f.calculateFitness)
+
 
 }

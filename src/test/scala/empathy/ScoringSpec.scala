@@ -14,7 +14,7 @@ class ScoringSpec extends FlatSpec with Matchers {
       "C"->3.0
     )
     val w:Weightings = Weightings.make(columns=List("A", "B", "C"), default = 2.0, coefficents = 2, fuzz = 0.0)
-    val res:Double = Scoring.scoreRow(row=row, weightings=w)
+    val res:Double = EmpathyScoring.scoreRow(row=row, weightings=w)
     assert(res==18.0)
   }
 
@@ -26,7 +26,7 @@ class ScoringSpec extends FlatSpec with Matchers {
     )
     val rows = Map("x"->row)
     val w:Weightings = Weightings.make(columns=List("A", "B", "C"), default = 2.0, coefficents = 2, fuzz = 0.0)
-    val res:Map[String,Double] = Scoring.scoreRows(rows=rows, weightings=w)
+    val res:Map[String,Double] = EmpathyScoring.scoreRows(rows=rows, weightings=w)
     assert(res==Map("x"->18.0))
   }
 
