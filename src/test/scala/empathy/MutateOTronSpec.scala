@@ -14,6 +14,13 @@ class MutateOTronSpec extends FlatSpec with Matchers {
     assert(r.weights.head == -1.0)
   }
 
+  it should "be not flip an empty weighting" in {
+    val m = new MutateOTron()
+    val w:Weighting = List()
+    val r = m.flipACoefficient(w)
+    assert(w.weights == Nil)
+  }
+
   it should "be able to jumble random bits of a weighting" in {
     val m = new MutateOTron()
     val w:Weighting = List(1.0)
@@ -33,6 +40,13 @@ class MutateOTronSpec extends FlatSpec with Matchers {
     val w:Weighting = List(1.0)
     val r = m.tweak(w, tweak_range = 0.0)
     assert(r.weights.head == 1.0)
+  }
+
+  it should "not tweak an empty sequence" in {
+    val m = new MutateOTron()
+    val w:Weighting = List()
+    val r = m.tweak(w, tweak_range = 9.0)
+    assert(r.weights == List())
   }
 
   it should "be ale to add an extra coefficient" in {

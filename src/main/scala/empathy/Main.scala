@@ -8,7 +8,8 @@ object Main extends App {
   val targets = Map(
     "Alphabet Inc" -> 16,
     "Aviva PLC" -> 87,
-    "Burberry Group PLC" -> 76
+    "Burberry Group PLC" -> 76,
+    "Chevron Corporation"-> 82
   )
 
   val e = new Evolver[SourceData.MixedData, Weightings]

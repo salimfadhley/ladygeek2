@@ -24,8 +24,7 @@ class RankingFitness(targets:Map[String,Int]) {
   def calculateFitness(weightings: Weightings, data: MixedData): Double = {
     val score:EmpathyScoring.Result = EmpathyScoring.scoreRows(data, weightings)
     val ranking:List[String] = calculateRanks(score)
-
-    0.0
+    scoreRanking(ranking)
   }
 
 }

@@ -9,7 +9,7 @@ class MutateOTron(extend_prob:Double=0.05, reduce_prob:Double=0.05, tweak_prob:D
 
   def mutate(ws:Weightings):Weightings = {
     val probs = List(extend_prob, reduce_prob, tweak_prob, jumble_prob,flip_prob)
-    val cumulative_probs = probs.indices.map(probs.slice(0, _).sum)
+    val cumulative_probs = probs.indices.map((i)=>{probs.slice(0, 1 + i).sum})
 
     ws.weightings.map((x: (String, Weighting)) => {
       mutateSingleWeighting(cumulative_probs, x._1, x._2)
@@ -38,10 +38,11 @@ class MutateOTron(extend_prob:Double=0.05, reduce_prob:Double=0.05, tweak_prob:D
   }
 
   def flipACoefficient(w:Weighting):Weighting = {
-    val r = scala.util.Random.nextInt(w.weights.length)
-    flipIndex(w, r)
+    w match {
+      case w if w.weights.size > 0 => flipIndex(w, scala.util.Random.nextInt(w.weights.length))
+      case w => w
+    }
   }
-
 
   def flipIndex(w: Weighting, index: Int): Weighting = {
     w.weights.zipWithIndex.map((x: (Double, Int)) => x._2 match {
@@ -59,10 +60,13 @@ class MutateOTron(extend_prob:Double=0.05, reduce_prob:Double=0.05, tweak_prob:D
   }
 
   def tweak(w: Weighting, tweak_range:Double=1.0):Weighting = {
-    val index = util.Random.nextInt(w.weights.size)
-    w.weights.zipWithIndex.map{
-      case x if x._2 == index => tweak(x._1, tweak_range)
-      case x => x._1
+    w.weights match {
+      case w if w.size > 0 => {val index = util.Random.nextInt(w.weights.size)
+        w.weights.zipWithIndex.map{
+          case x if x._2 == index => tweak(x._1, tweak_range)
+          case x => x._1
+        }}
+      case w => w
     }
   }
 
