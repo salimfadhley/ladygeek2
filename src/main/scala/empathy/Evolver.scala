@@ -13,20 +13,26 @@ class Evolver[D,W] {
         val w = mutatorFunction(initialWeightings)
         (fitnessFunction(w, data), w)
     }).toMap
-
     val maxScore = results.keysIterator.max
-    (maxScore, results(maxScore))
+    val result: (Double, W) = (maxScore, results(maxScore))
+    result
   }
 
   def multiEvolve(trials:Int, data:D, populationSize:Int, initialWeightings: W, mutatorFunction:(W)=>W, fitnessFunction:(W,D)=>Double):Result = {
-    val results = (0 to trials).map((x)=>
-      evolve(data, populationSize, initialWeightings, mutatorFunction, fitnessFunction)
-    ).toMap
+    var weightings:W = initialWeightings
+    var bestScore:Double = Double.MinValue
 
-    val maxScore = results.keysIterator.max
-    val bestWeighting = results(maxScore)
+    (0 to trials).foreach((x)=> {
+      println(s"Trial $x")
+      val trialReslt: Result = evolve(data, populationSize, weightings, mutatorFunction, fitnessFunction)
 
-    (maxScore, bestWeighting)
+      if (trialReslt._1 > bestScore) {
+        bestScore = trialReslt._1
+        weightings = trialReslt._2
+        println(s"Best score ${bestScore}")
+      }
+    })
+    (bestScore, weightings)
   }
 
 }
