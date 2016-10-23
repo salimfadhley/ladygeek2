@@ -60,14 +60,14 @@ class MutateOTronSpec extends FlatSpec with Matchers {
     val m = new MutateOTron()
     val w:Weighting = List(1.0)
     val r = m.reduce(w)
-    assert(r.weights.size == 0)
+    assert(r.weights.isEmpty)
   }
 
   it should "reduce should not modify an empty list" in {
     val m = new MutateOTron()
     val w:Weighting = List()
     val r = m.reduce(w)
-    assert(r.weights.size == 0)
+    assert(r.weights.isEmpty)
   }
 
   it should "be able to mutate weightings" in {

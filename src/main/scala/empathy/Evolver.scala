@@ -32,7 +32,7 @@ class Evolver[D,W] {
         bestScore = trialReslt._1
         weightings = trialReslt._2
         fuzz_multiplier = 1.0
-        println(s"Best score ${bestScore}")
+        println(s"Best score $bestScore")
       } else {
         fuzz_multiplier = fuzz_multiplier * 1.1
       }

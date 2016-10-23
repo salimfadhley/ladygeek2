@@ -9,7 +9,7 @@ class WeightingSpec extends FlatSpec with Matchers{
 
   "Weighting" can "be created" in {
     val w = Weighting(List(1.0, 1.0, 1.0))
-    assert(w.weights(0)==1.0)
+    assert(w.weights.head==1.0)
   }
 
   it can "be applied to a value" in {

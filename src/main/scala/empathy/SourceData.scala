@@ -15,7 +15,7 @@ class SourceData {
 
   lazy val mixed_data:SourceData.MixedData = SourceData.loadData("/inputs/input_data.csv")
 
-  def getColumns(): List[String] = {
+  def getColumns: List[String] = {
     mixed_data.valuesIterator.flatMap(_.keysIterator).toSet.toList
   }
 
@@ -30,7 +30,7 @@ object SourceData {
     try {
       item.d
     } catch {
-      case x:RuntimeException => throw new RuntimeException(s"Error converting column ${s} / '${item._s}' to Double")
+      case x:RuntimeException => throw new RuntimeException(s"Error converting column $s / '${item._s}' to Double")
     }
   }
 

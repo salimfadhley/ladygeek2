@@ -39,7 +39,7 @@ class MutateOTron(extend_prob:Double=0.05, reduce_prob:Double=0.05, tweak_prob:D
 
   def flipACoefficient(w:Weighting):Weighting = {
     w match {
-      case w if w.weights.size > 0 => flipIndex(w, scala.util.Random.nextInt(w.weights.length))
+      case w if w.weights.nonEmpty => flipIndex(w, scala.util.Random.nextInt(w.weights.length))
       case w => w
     }
   }
@@ -61,11 +61,11 @@ class MutateOTron(extend_prob:Double=0.05, reduce_prob:Double=0.05, tweak_prob:D
 
   def tweak(w: Weighting, tweak_range:Double=1.0):Weighting = {
     w.weights match {
-      case w if w.size > 0 => {val index = util.Random.nextInt(w.weights.size)
+      case w if w.nonEmpty => val index = util.Random.nextInt(w.weights.size)
         w.weights.zipWithIndex.map{
           case x if x._2 == index => tweak(x._1, tweak_range)
           case x => x._1
-        }}
+        }
       case w => w
     }
   }
