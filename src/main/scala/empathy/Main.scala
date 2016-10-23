@@ -15,7 +15,9 @@ object Main extends App {
   val e = new Evolver[SourceData.MixedData, Weightings]
   val sd = new SourceData
   val m = new MutateOTron()
-  val f = new RankingFitness(targets)
+
+
+  val f = RankingFitness.makeFromIndex(targets, 160)
 
   val columnNames:List[String] = sd.getColumns()
 

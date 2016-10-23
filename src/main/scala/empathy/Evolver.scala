@@ -7,10 +7,11 @@ class Evolver[D,W] {
 
   type Result = (Double, W)
 
-  def evolve(data:D, populationSize:Int, initialWeightings: W, mutatorFunction:(W)=>W, fitnessFunction:(W,D)=>Double ):Result = {
+  def evolve(data:D, populationSize:Int, initialWeightings: W, mutatorFunction:(W, Double)=>W, fitnessFunction:(W,D)=>Double, fuzz_multiplier:Double ):Result = {
     val results = (0 to populationSize)
+      .par
       .map((i) =>{
-        val w = mutatorFunction(initialWeightings)
+        val w = mutatorFunction(initialWeightings, fuzz_multiplier)
         (fitnessFunction(w, data), w)
     }).toMap
     val maxScore = results.keysIterator.max
@@ -18,18 +19,22 @@ class Evolver[D,W] {
     result
   }
 
-  def multiEvolve(trials:Int, data:D, populationSize:Int, initialWeightings: W, mutatorFunction:(W)=>W, fitnessFunction:(W,D)=>Double):Result = {
+  def multiEvolve(trials:Int, data:D, populationSize:Int, initialWeightings: W, mutatorFunction:(W, Double)=>W, fitnessFunction:(W,D)=>Double):Result = {
     var weightings:W = initialWeightings
     var bestScore:Double = Double.MinValue
+    var fuzz_multiplier:Double = 1.0
 
     (0 to trials).foreach((x)=> {
       println(s"Trial $x")
-      val trialReslt: Result = evolve(data, populationSize, weightings, mutatorFunction, fitnessFunction)
+      val trialReslt: Result = evolve(data, populationSize, weightings, mutatorFunction, fitnessFunction, fuzz_multiplier)
 
       if (trialReslt._1 > bestScore) {
         bestScore = trialReslt._1
         weightings = trialReslt._2
+        fuzz_multiplier = 1.0
         println(s"Best score ${bestScore}")
+      } else {
+        fuzz_multiplier = fuzz_multiplier * 1.1
       }
     })
     (bestScore, weightings)
