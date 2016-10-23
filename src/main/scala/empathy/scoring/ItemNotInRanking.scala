@@ -1,4 +1,4 @@
-package empathy.ranking
+package empathy.scoring
 
 /**
   * Created by salim on 23/10/2016.

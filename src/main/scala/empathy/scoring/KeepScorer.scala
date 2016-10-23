@@ -1,9 +1,9 @@
-package empathy.ranking
+package empathy.scoring
 
 /**
   * Created by salim on 23/10/2016.
   */
-class KeepRanker(name:String, target:Double, exponent:Int=2) extends Ranker {
+class KeepScorer(name:String, target:Double, exponent:Int=2) extends Scorer {
   override val strategy: String = "Keep"
 
   def actualScore(input:List[String]):Double = {

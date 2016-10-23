@@ -1,9 +1,9 @@
-package empathy.ranking
+package empathy.scoring
 
 /**
   * Created by salim on 23/10/2016.
   */
-class LowerRanker(name:String, target:Double) extends KeepRanker(name, target) {
+class LowerScorer(name:String, target:Double) extends KeepScorer(name, target) {
   override val strategy: String = "Lower"
   override def rank(input: List[String]): Double = {
     actualScore(input) match {
