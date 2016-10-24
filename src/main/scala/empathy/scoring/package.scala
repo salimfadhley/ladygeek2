@@ -7,6 +7,8 @@ package object scoring {
 
   type ScorerSpec = List[(String, String, Double)]
 
+  type ScorerSpecLite = List[(String, String)]
+
   implicit def ms(scorers:List[Scorer]):MegaScorer = {
     MegaScorer(scorers=scorers)
   }
@@ -20,6 +22,18 @@ package object scoring {
       case (company, "Lower", target) => new LowerScorer(company, target)
       case (_, x, _) => throw new RuntimeException(s"Bad Strategy: $x")
     })
+  }
+
+  def specFromSpecLite(specLite: ScorerSpecLite): ScorerSpec = {
+    val length = specLite.size
+    specLite.zipWithIndex.map{
+      case ((strategy:String, name:String), index:Int) =>
+        (strategy, name, index.toDouble / (length - 1).toDouble)
+    }
+  }
+
+  implicit def ms_from_strategy_and_name_list(specLite:ScorerSpecLite):MegaScorer = {
+    ms_from_spec(specFromSpecLite(specLite))
   }
 
 }

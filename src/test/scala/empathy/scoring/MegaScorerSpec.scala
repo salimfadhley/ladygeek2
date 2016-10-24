@@ -12,8 +12,8 @@ class MegaScorerSpec extends FlatSpec with Matchers {
       new KeepScorer("A", 0),
       new KeepScorer("Z", 1)
     )
-    assert(ms.scorers.head.strategy=="keep")
-    assert(ms.scorers.tail.head.strategy=="keep")
+    assert(ms.scorers.head.strategy=="Keep")
+    assert(ms.scorers.tail.head.strategy=="Keep")
   }
 
   it should "be creatable from a list of (name, strategy, target)" in {
@@ -24,11 +24,29 @@ class MegaScorerSpec extends FlatSpec with Matchers {
       ("D", "Raise", 0.75),
       ("E", "Bottom", 0.1)
     )
-
     assert(ms.scorers.head.strategy=="Keep")
     assert(ms.scorers.tail.head.strategy=="Keep")
-
   }
+
+  it should "be creatable from a list of (name, strategy)" in {
+    val ms:MegaScorer = List(
+      ("A", "Keep"),
+      ("B", "Top"),
+      ("C", "Lower"),
+      ("D", "Raise"),
+      ("E", "Bottom")
+    )
+    assert(ms.scorers.head.strategy=="Keep")
+    assert(ms.scorers.tail.head.strategy=="Keep")
+  }
+
+  it should "give a score of zero when empty" in {
+    val ms:MegaScorer = new MegaScorer(Nil)
+    val ind:List[String] = List("A", "B", "C", "D")
+    assert(ms.score(ind)==0)
+  }
+
+
 
 
 
