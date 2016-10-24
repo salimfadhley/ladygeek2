@@ -13,6 +13,7 @@ package object scoring {
     MegaScorer(scorers=scorers)
   }
 
+
   implicit def ms_from_spec(spec:ScorerSpec) = {
     MegaScorer(spec.map{
       case (company, "Keep", target) => new KeepScorer(company, target)
@@ -27,8 +28,8 @@ package object scoring {
   def specFromSpecLite(specLite: ScorerSpecLite): ScorerSpec = {
     val length = specLite.size
     specLite.zipWithIndex.map{
-      case ((strategy:String, name:String), index:Int) =>
-        (strategy, name, index.toDouble / (length - 1).toDouble)
+      case ((name:String, strategy:String), index:Int) =>
+        (name, strategy, index.toDouble / (length - 1).toDouble)
     }
   }
 
