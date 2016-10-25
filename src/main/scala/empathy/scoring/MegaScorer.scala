@@ -5,6 +5,6 @@ package empathy.scoring
   */
 case class MegaScorer(scorers:List[Scorer]) {
   def score(ind: List[String]) = {
-    0.0
+    scorers.map((s) => s.rank(ind)).sum * -1
   }
 }

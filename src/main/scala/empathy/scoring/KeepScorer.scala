@@ -8,11 +8,16 @@ class KeepScorer(name:String, target:Double, exponent:Int=2) extends Scorer {
 
   def actualScore(input:List[String]):Double = {
     input.indexOf(name) match {
-      case -1 => throw new ItemNotInRanking(name)
+      case -1 => {
+        throw new ItemNotInRanking(name)
+      }
       case i => i.toDouble / (input.size - 1).toDouble
     }
   }
 
-  override def rank(input: List[String]): Double = Math.pow(target - actualScore(input), exponent)
+  override def rank(input: List[String]): Double = {
+    val actual = actualScore(input)
+    Math.pow(target - actual, exponent)
+  }
 
 }

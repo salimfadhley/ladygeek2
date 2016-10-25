@@ -5,7 +5,7 @@ import scala.collection.immutable.IndexedSeq
 /**
   * Created by salim on 18/10/2016.
   */
-class MutateOTron(extend_prob:Double=0.05, reduce_prob:Double=0.05, tweak_prob:Double=0.05, jumble_prob:Double=0.05, flip_prob:Double=0.05, tweak_range:Double=1.0) {
+class MutateOTron(extend_prob:Double=0.01, reduce_prob:Double=0.05, tweak_prob:Double=0.07, jumble_prob:Double=0.05, flip_prob:Double=0.05, tweak_range:Double=1.0) {
 
   def mutate(ws:Weightings, fuzz_multiplier:Double=1.0):Weightings = {
     val probs = List(extend_prob, reduce_prob, tweak_prob, jumble_prob,flip_prob)

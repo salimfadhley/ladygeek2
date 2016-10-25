@@ -46,16 +46,13 @@ class MegaScorerSpec extends FlatSpec with Matchers {
     assert(ms.score(ind)==0)
   }
 
-  it should "give a non-zero score if an item is displaced" in {
-    val index = List("A", "B", "C", "D")
-    val ms:MegaScorer = List(("A", "Top"), ("C", "Bottom"))
-
-    assert (ms.score(index) == 0)
+  it should "give a non-zero score if items are displaced" in {
+    val ms:MegaScorer = new MegaScorer(List(
+      new KeepScorer("B", 0.0)
+    ))
+    val ind:List[String] = List("A", "B", "C", "D")
+    val result = ms.score(ind)
+    assert(result==Math.pow(1.0/3, 2))
   }
-
-
-
-
-
 
 }

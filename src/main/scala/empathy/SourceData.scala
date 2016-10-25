@@ -12,6 +12,7 @@ import scala.io.Source
 class SourceData {
   lazy val targets:List[(String, String)] = SourceData.loadTargets("/inputs/targets.csv")
   lazy val mixed_data:SourceData.MixedData = SourceData.loadData("/inputs/input_data.csv")
+
   def getColumns: List[String] = {
     mixed_data.valuesIterator.flatMap(_.keysIterator).toSet.toList
   }
@@ -53,7 +54,7 @@ object SourceData {
       case None => throw new RuntimeException(s"$inputFilename is bogus!")
       case Some(s:InputStream) => Source.fromInputStream(s)
     }
-    CSVReader.open(data).iteratorWithHeaders.map(x => (x.getOrElse("Strategy", "Ignore"), x.getOrElse("Company", "XXX"))).toList
+    CSVReader.open(data).iteratorWithHeaders.map(x => (x.getOrElse("Company", "Ignore"), x.getOrElse("Strategy", "XXX"))).toList
   }
 
 }

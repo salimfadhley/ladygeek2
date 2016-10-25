@@ -6,32 +6,27 @@ import scala.collection.immutable.Map
 /**
   * Created by salim on 21/10/2016.
   */
-class RankingFitness(targets:Map[String,Double]) {
+class RankingFitness(scoringFunction:(List[String])=>Double) {
 
-  def scoreRanking(ranking:List[String]):Double = {
-    targets.map{
-      case (name:String, t:Double) => Math.pow((ranking.indexOf(name).toDouble/ranking.size - t), 2)
-  }.sum * -1
 
-  }
 
-  def calculateRanks(score: Map[String, Double]): List[String] = {
-    val inverted = score.map(_.swap)
-    inverted.keys.toList.sortWith(_ < _).map(inverted(_))
+  type Result = List[(Double, String)]
+
+  def scoreRow(row: Map[String,Double], weightings: Weightings): Double = weightings.calculateScore(row)
+
+  def scoreRows(rows:SourceData.MixedData, weightings: Weightings):Result = {
+    rows.map{
+      case (name, row) => (weightings.calculateScore(row), name)
+    }.toList
   }
 
   def calculateFitness(weightings: Weightings, data: MixedData): Double = {
-    val score:EmpathyScoring.Result = EmpathyScoring.scoreRows(data, weightings)
-    val ranking:List[String] = calculateRanks(score)
-    scoreRanking(ranking)
+    val ranking: List[String] = calculateRanking(weightings, data)
+    scoringFunction(ranking)
   }
 
-}
-
-
-object RankingFitness {
-  def makeFromIndex(targets: Map[String, Int], indexSize: Int) = {
-    new RankingFitness(targets.map{ case (name, pos) => (name, pos.toDouble / indexSize)})
+  def calculateRanking(weightings: Weightings, data: MixedData): List[String] = {
+    val score = scoreRows(data, weightings)
+    score.sortWith((lt,rt)=>lt._1 < rt._1).map(_._2)
   }
-
 }
