@@ -1,7 +1,7 @@
 import os.path
 import collections
-import pprint
 import csv
+
 
 def calculate_averages(counter):
     skips = 0
@@ -74,7 +74,6 @@ def write_result(file_path, data):
         writer.writerow(dict(zip(column_names, column_names)))
         writer.writerows(data)
 
-
     print("Done!")
 
 
@@ -83,7 +82,7 @@ def main():
     results = get_survey_data(os.path.join(resource_path, "empathy_companies.csv"))
     enhanced_results = enhance_results(
         results = results,
-        filename = os.path.join(resource_path, "input_data.csv")
+        filename = os.path.join(resource_path, "input_data_with_chinese_tweak.csv")
     )
 
     write_result(
