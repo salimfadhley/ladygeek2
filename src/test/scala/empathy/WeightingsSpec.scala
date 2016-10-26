@@ -38,5 +38,10 @@ class WeightingsSpec extends FlatSpec with Matchers {
     assert(w.weightings.values.flatMap((w: Weighting) =>w.weights).sum==0)
   }
 
+  it should "be convertable to json" in {
+    val w:Weightings = Weightings.make(columns=List("A"), coefficents=3, fuzz=0.0)
+    assert(w.toJson.toString=="{\"weightings\":[{\"name\":\"A\",\"weights\":[0,0,0]}]}")
+  }
+
 
 }

@@ -24,4 +24,19 @@ class WeightingSpec extends FlatSpec with Matchers{
     assert(Weighting(List())(2.0)==0)
   }
 
+  it can "be unapplied" in {
+    val w = Weighting(List(1.0, 2.0, 3.0))
+    w match {
+      case Weighting(l) => assert(l==w.weights)
+      case _ => throw new RuntimeException("Match failed!")
+    }
+  }
+
+  it can "be converted to json" in {
+    val w = Weighting(List(1.0, 2.0, 3.0))
+    val json = w.toJson
+    val text = json.toString()
+    assert(text=="[1,2,3]")
+  }
+
 }
