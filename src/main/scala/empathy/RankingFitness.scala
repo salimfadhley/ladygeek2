@@ -1,6 +1,8 @@
 package empathy
 
 import empathy.SourceData.MixedData
+import empathy.weight.Weightings
+
 import scala.collection.immutable.Map
 
 /**
@@ -17,8 +19,7 @@ class RankingFitness(scoringFunction:(List[String])=>Double) {
   }
 
   def calculateFitness(weightings: Weightings, data: MixedData): Double = {
-    val ranking: List[String] = calculateRanking(weightings, data)
-    scoringFunction(ranking)
+    calculateFitnessAndRanking(weightings,data)._1
   }
 
   def calculateFitnessAndRanking(weightings: Weightings, data: MixedData): (Double, List[String]) = {

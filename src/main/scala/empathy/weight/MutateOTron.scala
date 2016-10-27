@@ -1,4 +1,4 @@
-package empathy
+package empathy.weight
 
 import scala.collection.immutable.IndexedSeq
 

@@ -1,4 +1,4 @@
-package empathy
+package empathy.weight
 
 import org.scalatest.{FlatSpec, Matchers}
 
@@ -38,5 +38,12 @@ class WeightingSpec extends FlatSpec with Matchers{
     val text = json.toString()
     assert(text=="[1,2,3]")
   }
+
+  it can "have a fitness" in {
+    val w = Weighting(List(1.0, 2.0, 3.0))
+    assert(w.fitness==0.0)
+
+  }
+
 
 }

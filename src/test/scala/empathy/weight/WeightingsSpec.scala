@@ -1,5 +1,7 @@
-package empathy
+package empathy.weight
 
+import empathy.MissingColumn
+import empathy.weight.{Weighting, Weightings}
 import org.scalatest.{FlatSpec, Matchers}
 
 /**

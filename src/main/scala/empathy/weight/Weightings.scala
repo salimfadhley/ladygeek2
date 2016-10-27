@@ -1,5 +1,6 @@
-package empathy
+package empathy.weight
 
+import empathy._
 import play.api.libs.json.{JsArray, JsObject, JsValue, Json}
 
 import scala.io.Source

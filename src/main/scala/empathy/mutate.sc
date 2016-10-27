@@ -1,4 +1,4 @@
-import empathy.{MutateOTron, Weighting, Weightings}
+import empathy.weight.{MutateOTron, Weighting, Weightings}
 
 val w = Weightings.make(List("A", "B", "C", "D", "E", "F"))
 val m = new MutateOTron

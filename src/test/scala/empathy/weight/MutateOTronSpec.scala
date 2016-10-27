@@ -1,4 +1,4 @@
-package empathy
+package empathy.weight
 
 import org.scalatest.{FlatSpec, Matchers}
 

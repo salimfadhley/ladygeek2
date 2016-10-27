@@ -52,7 +52,7 @@ class MegaScorerSpec extends FlatSpec with Matchers {
     ))
     val ind:List[String] = List("A", "B", "C", "D")
     val result = ms.score(ind)
-    assert(result==Math.pow(1.0/3, 2))
+    assert(result <= 0)
   }
 
 }
