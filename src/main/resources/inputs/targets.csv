@@ -134,7 +134,6 @@ Keep,Charter Communication Inc
 Keep,WM Morrison Supermarkets PLC
 Keep,BT Group Plc
 Keep,Staples Inc
-Keep,Telefonica SA ADR
 Keep,American Airlines Inc
 Keep,Centrica PLC
 Keep,Anglo American PLC
@@ -156,9 +155,11 @@ Keep,Baidu Inc
 Keep,Dongfeng Motor Corporation
 Keep,Tata Motors Limited
 Keep,Tencent Holdings Limited
+Keep,Telefonica SA ADR
 Keep,Aditya Birla Group
 Keep,Infosys Limited
 Keep,China Mobile Communications Corporation
 Keep,Tata Steel Limited
 Keep,ITC Limited
 Raise,News Corporation
+Bottom,Sports Direct International PLC
