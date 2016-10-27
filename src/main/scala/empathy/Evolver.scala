@@ -34,7 +34,7 @@ class Evolver[D,W] {
         weightings = trialReslt._2
         fuzz_multiplier = 1.0
         pop = (pop * populationMultiplier).toInt
-        println(s"Best score $bestScore")
+        println(s"Best score $bestScore, population: ${pop}, fuzz multiplier: ${fuzz_multiplier}")
       } else {
         fuzz_multiplier = fuzz_multiplier * 1.1
         pop = populationSize
