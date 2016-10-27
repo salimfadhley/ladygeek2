@@ -23,14 +23,15 @@ case class Weightings(weightings:Map[String,Weighting]) {
     Json.obj("weightings"->ws)
   }
   def calculateScore(row: Map[String, Double]): Double = {
-    weightings.map((x: (String, Weighting)) => {
-      val columnName:String = x._1
-      val w:Weighting = x._2
-      row.get(columnName) match {
-        case Some(v) => w(v)
-        case None => throw new MissingColumn(s"Row is missing column $columnName")
+    weightings.map{
+      case (columnName: String, w: Weighting) => {
+        row.get(columnName) match {
+          case Some(v) => w(v)
+          case None => throw new MissingColumn(s"Row is missing column $columnName")
+        }
       }
-    } ).sum
+    }.sum
+
   }
 }
 
@@ -53,7 +54,7 @@ object Weightings {
     val namesAndWeights: Seq[(String, Weighting)] = ws.value.map {
       case v: JsValue => {
         val vm = v.as[JsObject].value
-        val name = vm("name").toString
+        val name = vm("name").as[String]
         val weights: List[Double] = vm("weights").as[JsArray].value.map((x: JsValue) => x.toString.toDouble).toList
         (name, Weighting(weights))
       }

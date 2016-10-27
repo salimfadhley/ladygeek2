@@ -6,8 +6,9 @@ package empathy
 object Config {
   val main_input_data: String = "/inputs/ygl_corrected.csv"
   val target_file: String = "/inputs/targets.csv"
-  val population: Int = 10000
+  val population: Int = 2500
   val trials: Int = 100
+  val resourceDir = "C:/Users/salim/workspace/ladygeek2/src/main/resources/"
 
   val runDir:String = "C:/Users/salim/workspace/ladygeek2/src/main/resources/runs"
   val timestamp: Long = System.currentTimeMillis / 1000

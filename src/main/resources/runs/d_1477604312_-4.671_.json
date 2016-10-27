@@ -1,0 +1,69 @@
+{
+  "weightings" : [ {
+    "name" : "ygl_answers",
+    "weights" : [ 0.14928824674733965, -0.23111423669062914 ]
+  }, {
+    "name" : "major_scandal",
+    "weights" : [ 1.048049652671034 ]
+  }, {
+    "name" : "glassdoor_values",
+    "weights" : [ 0.2509162708112542 ]
+  }, {
+    "name" : "ten_minute_response_rate",
+    "weights" : [ -0.40444497397159607 ]
+  }, {
+    "name" : "ceo_vs_market_cap",
+    "weights" : [ 1.3864205073837086, -0.12231327710403195, -4.55328939579754, 1.38191196374222, 0.16103637750235966 ]
+  }, {
+    "name" : "five hour response rate",
+    "weights" : [ 0.1867997436763793, -0.5273728526395 ]
+  }, {
+    "name" : "glassdoor_leadership",
+    "weights" : [ -0.5506040444561597, -0.9750371753103527, -0.31842903060461536 ]
+  }, {
+    "name" : "proportion_women",
+    "weights" : [ 0.286897088465098, -2.2420495528635422, -0.7022469142729811, -0.45248045554084526 ]
+  }, {
+    "name" : "repetition",
+    "weights" : [ 1.3509452952935492, -0.26880777200357187 ]
+  }, {
+    "name" : "ygl_skips",
+    "weights" : [ 1.0160237343779326, 0.2002481993913629 ]
+  }, {
+    "name" : "stock_phrases",
+    "weights" : [ 0.2195464475144706, -0.10100399122757042 ]
+  }, {
+    "name" : "glassdoor_opportunity",
+    "weights" : [ 1.1878964095375348, 0.4368463297997962 ]
+  }, {
+    "name" : "ygl_average",
+    "weights" : [ 0.9843991606657705, -0.3550264399109535, -0.09167598418110257, -1.515541063928622 ]
+  }, {
+    "name" : "glassdoor_friend",
+    "weights" : [ 1.0055613558868557 ]
+  }, {
+    "name" : "half_hour_minute_response_rate",
+    "weights" : [ 0.27069738318925807, -0.7361724776022858, -0.32634204452838245, -0.5444428889521641 ]
+  }, {
+    "name" : "i_we_you",
+    "weights" : [ -0.173682664112649, -0.42606536400916595 ]
+  }, {
+    "name" : "glassdoor_comp",
+    "weights" : [ -0.32339614635799474, -1.275814487216081 ]
+  }, {
+    "name" : "empathic_words",
+    "weights" : [ 1.1715279765719135, -0.889237497708949 ]
+  }, {
+    "name" : "glassdoor_ceo",
+    "weights" : [ -0.2521930519114599, -0.20647920517349327 ]
+  }, {
+    "name" : "carbon_sector_score",
+    "weights" : [ -0.1278367334755679 ]
+  }, {
+    "name" : "carbon_country_score",
+    "weights" : [ -1.289588858043506 ]
+  }, {
+    "name" : "glassdoor_balance",
+    "weights" : [ 0.6692250253715403 ]
+  } ]
+}

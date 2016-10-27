@@ -33,21 +33,26 @@ object Main extends App {
     val json_writer = new FileWriter(s"${Config.runDir}/${json_filename}")
 
     val ranking_filename = Config.ranking_filename(fitness_and_ranking._1)
-    val ranking_writer = new FileWriter(s"${Config.runDir}/$ranking_filename")
+
+    val ranking = fitness_and_ranking._2
 
     json_writer.write(Json.prettyPrint(result._2.toJson))
     json_writer.close()
 
-    fitness_and_ranking._2.zipWithIndex.foreach { case (s: String, i: Int) => {
+    writeRanking(ranking_filename, ranking)
+  }
+
+
+  def writeRanking(ranking_filename: String, ranking: List[String]): Unit = {
+    val ranking_writer = new FileWriter(s"${Config.runDir}/$ranking_filename")
+    ranking.zipWithIndex.foreach { case (s: String, i: Int) => {
       val q = "\""
-      val message:String = s"""$i,$q$s$q"""
-        println(message)
-        ranking_writer.write(message + "\n")
-      }
+      val message: String = s"""$i,$q$s$q"""
+      println(message)
+      ranking_writer.write(message + "\n")
+    }
     }
 
     ranking_writer.close()
   }
-
-
 }
