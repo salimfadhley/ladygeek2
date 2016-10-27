@@ -10,8 +10,8 @@ import scala.io.Source
   * Created by sal on 17/10/16.
   */
 class SourceData {
-  lazy val targets:List[(String, String)] = SourceData.loadTargets("/inputs/targets.csv")
-  lazy val mixed_data:SourceData.MixedData = SourceData.loadData("/inputs/input_data.csv")
+  lazy val targets:List[(String, String)] = SourceData.loadTargets(Config.target_file)
+  lazy val mixed_data:SourceData.MixedData = SourceData.loadData(Config.main_input_data)
 
   def getColumns: List[String] = {
     mixed_data.valuesIterator.flatMap(_.keysIterator).toSet.toList

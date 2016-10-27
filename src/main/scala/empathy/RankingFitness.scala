@@ -24,7 +24,7 @@ class RankingFitness(scoringFunction:(List[String])=>Double) {
 
   def calculateFitnessAndRanking(weightings: Weightings, data: MixedData): (Double, List[String]) = {
     val ranking: List[String] = calculateRanking(weightings, data)
-    val fitness = scoringFunction(ranking)
+    val fitness = scoringFunction(ranking) + weightings.fitness
     (fitness, ranking)
   }
 

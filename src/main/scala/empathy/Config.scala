@@ -4,7 +4,9 @@ package empathy
   * Created by salim on 26/10/2016.
   */
 object Config {
-  val population: Int = 20000
+  val main_input_data: String = "/inputs/ygl_corrected.csv"
+  val target_file: String = "/inputs/targets.csv"
+  val population: Int = 10000
   val trials: Int = 100
 
   val runDir:String = "C:/Users/salim/workspace/ladygeek2/src/main/resources/runs"

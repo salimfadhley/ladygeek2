@@ -1,7 +1,6 @@
 package empathy.weight
 
 import empathy.MissingColumn
-import empathy.weight.{Weighting, Weightings}
 import org.scalatest.{FlatSpec, Matchers}
 
 /**
@@ -43,6 +42,21 @@ class WeightingsSpec extends FlatSpec with Matchers {
   it should "be convertable to json" in {
     val w:Weightings = Weightings.make(columns=List("A"), coefficents=3, fuzz=0.0)
     assert(w.toJson.toString=="{\"weightings\":[{\"name\":\"A\",\"weights\":[0,0,0]}]}")
+  }
+
+  it should "have a fitness score" in {
+    val w:Weightings = Weightings.make(columns=List("A"), coefficents=3, fuzz=0.0)
+    assert(w.fitness==1.0)
+  }
+
+  it should "have a fitness score which counts invalid items" in {
+    val w:Weightings = Weightings.make(columns=List("A", "B", "C"), coefficents=0, fuzz=0.0)
+    assert(w.fitness==3.0)
+  }
+
+  it should "have a fitness score which ignores non-zero values" in {
+    val w:Weightings = Weightings.make(columns=List("A"), default=1.0, coefficents=3, fuzz=0.0)
+    assert(w.fitness==0.0)
   }
 
 

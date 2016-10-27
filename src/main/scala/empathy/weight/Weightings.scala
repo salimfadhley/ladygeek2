@@ -9,6 +9,8 @@ import scala.io.Source
   * Created by salim on 18/10/2016.
   */
 case class Weightings(weightings:Map[String,Weighting]) {
+  def fitness = weightings.valuesIterator.map(_.weights.fitness).sum * -1
+
   def toJson:JsObject = {
 
     val ws = JsArray(weightings.map{
