@@ -38,7 +38,7 @@ object Main extends App {
     json_writer.close()
 
     fitness_and_ranking._2.zipWithIndex.map { case (s: String, i: Int) => {
-        val message = s"$i. -> $s"
+        val message = s"$i,\"$s\""
         println(message)
         ranking_writer.write(message + "\n")
       }
