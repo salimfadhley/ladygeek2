@@ -16,7 +16,7 @@ package object scoring {
 
   implicit def ms_from_spec(spec:ScorerSpec) = {
     MegaScorer(spec.map{
-      case (company, "Keep", target) => new KeepScorer(company, target)
+      case (company, "Keep", target) => new KeepScorer(company, target, multiplier=0.25)
       case (company, "Top", _) => new KeepScorer(company, 0,0)
       case (company, "Bottom", _) => new KeepScorer(company, 1.0)
       case (company, "Raise", target) => new RaiseScorer(company, target)

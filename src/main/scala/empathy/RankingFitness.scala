@@ -8,15 +8,11 @@ import scala.collection.immutable.Map
   */
 class RankingFitness(scoringFunction:(List[String])=>Double) {
 
-
-
-  type Result = List[(Double, String)]
-
   def scoreRow(row: Map[String,Double], weightings: Weightings): Double = weightings.calculateScore(row)
 
-  def scoreRows(rows:SourceData.MixedData, weightings: Weightings):Result = {
+  def scoreRows(rows:SourceData.MixedData, weightings: Weightings):List[ScoringResult] = {
     rows.map{
-      case (name, row) => (weightings.calculateScore(row), name)
+      case (name, row) => ScoringResult(name,weightings.calculateScore(row))
     }.toList
   }
 
@@ -25,8 +21,14 @@ class RankingFitness(scoringFunction:(List[String])=>Double) {
     scoringFunction(ranking)
   }
 
+  def calculateFitnessAndRanking(weightings: Weightings, data: MixedData): (Double, List[String]) = {
+    val ranking: List[String] = calculateRanking(weightings, data)
+    val fitness = scoringFunction(ranking)
+    (fitness, ranking)
+  }
+
   def calculateRanking(weightings: Weightings, data: MixedData): List[String] = {
-    val score = scoreRows(data, weightings)
-    score.sortWith((lt,rt)=>lt._1 < rt._1).map(_._2)
+    val score: List[ScoringResult] = scoreRows(data, weightings)
+    score.sortWith((lt,rt)=>lt.score < rt.score).map(_.name)
   }
 }
