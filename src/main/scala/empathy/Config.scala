@@ -6,7 +6,7 @@ package empathy
 object Config {
   val main_input_data: String = "/inputs/ygl_corrected.csv"
   val target_file: String = "/inputs/targets.csv"
-  val population: Int = 2500
+  val population: Int = 3000
   val trials: Int = 100
   val resourceDir = "C:/Users/salim/workspace/ladygeek2/src/main/resources/"
 

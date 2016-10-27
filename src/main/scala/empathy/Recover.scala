@@ -6,7 +6,6 @@ import empathy.weight.{MutateOTron, Weightings}
 object Recover extends App {
 
   val input_filename = "/runs/d_1477589581_-4.606_.json"
-
   val w = Weightings.fromJsonFile(input_filename)
 
   val e = new Evolver[MixedData, Weightings]

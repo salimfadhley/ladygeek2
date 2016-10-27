@@ -25,7 +25,11 @@ object Main extends App {
   }
 
   def calculateIndex(): Unit = {
-    val ws = Weightings.make(columnNames, default = 0.0, fuzz = 2.0)
+//    val ws = Weightings.make(columnNames, default = 0.0, fuzz = 2.0)
+
+    val input_filename = "/runs/d_1477589581_-4.606_.json"
+    val ws = Weightings.fromJsonFile(input_filename)
+
     val result: (Double, Weightings) = e.multiEvolve(Config.trials, sd.mixed_data, Config.population, ws, m.mutate, ff.calculateFitness)
     val fitness_and_ranking = ff.calculateFitnessAndRanking(result._2, sd.mixed_data)
 
