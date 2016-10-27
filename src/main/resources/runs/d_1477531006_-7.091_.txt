@@ -1,0 +1,180 @@
+0. -> Dongfeng Motor Corporation
+1. -> Tencent Holdings Limited
+2. -> Alibaba Group Holding Ltd ADR
+3. -> China Petroleum & Chemical Corp.
+4. -> Lenovo Group Ltd
+5. -> Haier Group
+6. -> Bank of China Limited
+7. -> Baidu Inc
+8. -> Huawei Technologies Co. Ltd
+9. -> Air China Limited
+10. -> China Mobile Communications Corporation
+11. -> Tata Motors Limited
+12. -> Godrej Consumer Products Limited
+13. -> Infosys Limited
+14. -> Tata Steel Limited
+15. -> ICICI Bank 
+16. -> ITC Limited
+17. -> State bank of india
+18. -> Aditya Birla Group
+19. -> Indian Oil Corporation Ltd
+20. -> Larsen & Tuobro Limited
+21. -> Sun Pharmacutical Industries Limited
+22. -> Reliance Industries India
+23. -> Bharti Airtel Limited
+24. -> Bharat Petroleum Corporation Ltd 
+25. -> Alphabet Inc
+26. -> Apple Inc
+27. -> Garmin Ltd
+28. -> LinkedIn Corporation
+29. -> Nike Inc
+30. -> The Procter & Gamble Company
+31. -> Johnson & Johnson
+32. -> Ebay Inc
+33. -> American Express Company
+34. -> Twitter Inc
+35. -> Colgate-Palmolive Company
+36. -> Viacom Inc
+37. -> Chevron Corporation
+38. -> Facebook Inc
+39. -> The Walt Disney Company
+40. -> General Mills Inc
+41. -> Netflix Inc
+42. -> General Motors Company
+43. -> Cisco Systems Inc
+44. -> Starbucks Corporation
+45. -> Microsoft Corporation
+46. -> Time Warner Inc
+47. -> Electronic Arts Inc
+48. -> Prudential Financial Inc
+49. -> Hilton Hotels Corporation
+50. -> Ford Motor Company
+51. -> Intel Corporation
+52. -> General Electric Company
+53. -> Yahoo Inc
+54. -> Pfizer Inc
+55. -> Tesla Motors Inc
+56. -> Bank of America Corporation
+57. -> Monster Beverage Corporation
+58. -> Wells Fargo & Company
+59. -> Citigroup Inc
+60. -> Mastercard Inc
+61. -> BlackRock Inc
+62. -> Whole Foods Market Inc
+63. -> Nvidia Corporation
+64. -> The Home Depot Inc
+65. -> Comcast Corporation
+66. -> Target Corp
+67. -> Amazon.com Inc
+68. -> Wal-Mart Stores Inc.
+69. -> The Boeing Company
+70. -> Morgan Stanley
+71. -> Marriott International
+72. -> Blackstone
+73. -> Discovery Communications Inc
+74. -> Oracle Corporation
+75. -> Staples Inc
+76. -> Merck & Co. Inc
+77. -> Visa Inc
+78. -> Mattel Inc
+79. -> United Parcel Service Inc
+80. -> Exxon Mobil Corporation
+81. -> Verizon Communications Inc
+82. -> Walgreens Boots Alliance Inc
+83. -> AT&T Inc
+84. -> Mcdonald's Corpoation
+85. -> TripAdvisor Inc
+86. -> Twenty-First Century Fox Inc
+87. -> International Business Machines Corporation
+88. -> Pepsico Inc
+89. -> Honeywell International Inc
+90. -> Abercrombie & Fitch Co.
+91. -> News Corporation
+92. -> The Coca-Cola Company
+93. -> Carnival Plc
+94. -> Mondelez International Inc
+95. -> American International Group Inc
+96. -> The Goldman Sachs Group Inc
+97. -> JPMorgan Chase & Company
+98. -> Charter Communication Inc
+99. -> The Kraft Heinz Company
+100. -> CVS Health
+101. -> SouthWest Airlines Company
+102. -> American Airlines Inc
+103. -> Banco Santander SA ADR
+104. -> Bayerische Motoren Werke AG
+105. -> SAP SE
+106. -> Daimler AG
+107. -> Audi AG
+108. -> Volkswagen Group
+109. -> Deutsche Telekom AG
+110. -> Deutsche Bank AG
+111. -> Honda Motor Co Ltd
+112. -> Toyota Motor Corp ADR
+113. -> Sony Corporation
+114. -> Samsung Electronics Co., Ltd.
+115. -> SABMiller PLC
+116. -> Standard Life PLC
+117. -> Barratt Developments PLC
+118. -> Next PLC
+119. -> Travis Perkins PLC
+120. -> AstraZeneca PLC
+121. -> J Sainsbury PLC
+122. -> Lloyds Banking Group PLC
+123. -> Marks and Spencer Group PLC
+124. -> Aviva PLC
+125. -> The Royal Bank of Scotland Group PLC
+126. -> Unilever PLC
+127. -> Intercontinental Hotel Group Plc
+128. -> HSBC Holdings PLC
+129. -> ITV Plc
+130. -> Vodafone Group Plc
+131. -> Diageo PLC
+132. -> Sky Plc
+133. -> Glaxosmithkline PLC
+134. -> Barclays PLC
+135. -> Accenture PLC
+136. -> National Grid PLC
+137. -> Experian PLC
+138. -> Imperial Tobacco Group Plc
+139. -> Kingfisher PLC
+140. -> Tesco PLC
+141. -> Royal Mail PLC
+142. -> Burberry Group PLC
+143. -> Schroders PLC
+144. -> BAE Systems PLC
+145. -> British American Tobacco Plc
+146. -> Royal Dutch Shell PLC
+147. -> Whitbread PLC
+148. -> Rolls Royce Holding Plc
+149. -> London Stock Exchange Group PLC
+150. -> BP PLC
+151. -> BT Group Plc
+152. -> Anglo American PLC
+153. -> Ocado Group
+154. -> SSE PLC
+155. -> Centrica PLC
+156. -> Rio Tinto PLC
+157. -> Direct Line Insurance Group PLC
+158. -> Standard Chartered PLC
+159. -> Sports Direct International PLC
+160. -> JD Sports Fashion PLC
+161. -> TalkTalk Telecom Group
+162. -> WM Morrison Supermarkets PLC
+163. -> Dixons Carphone PLC
+164. -> Pearson PLC
+165. -> Legal & General Group PLC
+166. -> Associated British Foods PLC
+167. -> BHP Billiton PLC
+168. -> Severn Trent Plc
+169. -> Hargreaves Lansdown PLC
+170. -> Virgin Money Holdings (UK) PLC
+171. -> EasyJet PLC
+172. -> International Consolidated Airlines Group
+173. -> Ryanair Ltd
+174. -> Telefonica SA ADR
+175. -> Total SA ADR
+176. -> LVMH Moët Hennessy Louis Vuitton SE
+177. -> Credit Suisse Group
+178. -> Novartis AG ADR
+179. -> UBS Group AG
