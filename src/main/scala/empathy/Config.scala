@@ -4,7 +4,7 @@ package empathy
   * Created by salim on 26/10/2016.
   */
 object Config {
-  val main_input_data: String = "/inputs/ygl_corrected.csv"
+  val main_input_data: String = "/inputs/ygl_corrected_no_china.csv"
   val target_file: String = "/inputs/targets.csv"
   val population: Int = 3000
   val trials: Int = 100
