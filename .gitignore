@@ -2,3 +2,9 @@
 .idea/
 project/
 target/
+.~lock.input_data.csv#
+.~lock.targets.csv#
+.~lock.ygl_corrected.csv#
+.~lock.ygl_corrected_no_china.csv#
+targets.csv___jb_old___
+targets.csv___jb_tmp___
