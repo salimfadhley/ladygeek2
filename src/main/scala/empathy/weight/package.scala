@@ -13,4 +13,11 @@ package object weight {
     Weightings(weightings)
   }
 
+  implicit def weightings2(w:Map[String,List[Double]]):Weightings = {
+    Weightings(w.map{case (s: String, doubles: List[Double]) =>{
+      (s, weighting(doubles))
+    }})
+
+  }
+
 }

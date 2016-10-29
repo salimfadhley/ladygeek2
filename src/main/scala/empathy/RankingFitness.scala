@@ -9,6 +9,15 @@ import scala.collection.immutable.Map
   * Created by salim on 21/10/2016.
   */
 class RankingFitness(scoringFunction:(List[String])=>Double) {
+  def explainRows(row: Map[String,Double], weightings: Weightings, explainMap:Map[String,Set[String]]): Map[String,Double] = {
+    val columnScores:Map[String,Double] = weightings.calculateColumnScores(row)
+    explainMap.map{
+      case (groupName: String, columnNames: Set[String]) => {
+        (groupName, columnNames.map(columnScores(_)).sum)
+      }
+    }
+  }
+
 
   def scoreRow(row: Map[String,Double], weightings: Weightings): Double = weightings.calculateScore(row)
 
@@ -17,6 +26,8 @@ class RankingFitness(scoringFunction:(List[String])=>Double) {
       case (name, row) => ScoringResult(name,weightings.calculateScore(row))
     }.toList
   }
+
+
 
   def calculateFitness(weightings: Weightings, data: MixedData): Double = {
     calculateFitnessAndRanking(weightings,data)._1

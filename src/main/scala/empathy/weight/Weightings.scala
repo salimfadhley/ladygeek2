@@ -3,6 +3,7 @@ package empathy.weight
 import empathy._
 import play.api.libs.json.{JsArray, JsObject, JsValue, Json}
 
+import scala.collection.immutable.Range.Inclusive
 import scala.io.Source
 
 /**
@@ -22,25 +23,32 @@ case class Weightings(weightings:Map[String,Weighting]) {
 
     Json.obj("weightings"->ws)
   }
-  def calculateScore(row: Map[String, Double]): Double = {
+
+
+  def calculateColumnScores(row: Map[String, Double]): Map[String,Double] = {
     weightings.map{
       case (columnName: String, w: Weighting) => {
         row.get(columnName) match {
-          case Some(v) => w(v)
+          case Some(v) => (columnName, w(v))
           case None => throw new MissingColumn(s"Row is missing column $columnName")
         }
       }
-    }.sum
-
+    }
   }
+
+  def calculateScore(row: Map[String,Double]) : Double = {
+     calculateColumnScores(row).valuesIterator.sum
+  }
+
 }
 
 object Weightings {
-  def applyFuzz(i: Double, fuzz: Double): Double = i + ( util.Random.nextDouble() - 0.5 ) * fuzz
-  def make(columns: List[String], default: Double=0.0, coefficents: Int=3, fuzz: Double=0): Weightings = {
-    columns.map(c=>{
-      (c, weighting((0 until coefficents).map((i: Int) =>applyFuzz(default, fuzz)).toList))
-    }).toMap
+
+  def make(columns: List[String], default: Double=0.0, coeficents: Int=3, fuzz: Double=0): Weightings = {
+    Weightings(columns.map(cn=>{
+      val w=Weighting((0 until coeficents).map(i=>default + ( util.Random.nextDouble() - 0.5 ) * fuzz).toList)
+      (cn, w)
+    }).toMap)
   }
 
   def fromJsonString(jsonString:String):Weightings = {

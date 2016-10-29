@@ -15,7 +15,7 @@ class ScoringSpec extends FlatSpec with Matchers {
       "C"->3.0
     )
     val rf = new RankingFitness(null)
-    val w:Weightings = Weightings.make(columns=List("A", "B", "C"), default = 2.0, coefficents = 2, fuzz = 0.0)
+    val w:Weightings = Weightings.make(columns=List("A", "B", "C"), default = 2.0, coeficents = 2, fuzz = 0.0)
     val res:Double = rf.scoreRow(row=row, weightings=w)
     assert(res==18.0)
   }
