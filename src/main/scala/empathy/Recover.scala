@@ -1,3 +1,6 @@
+import java.io.File
+
+import com.github.tototoshi.csv.CSVWriter
 import empathy.{Config, Evolver, Main, RankingFitness, SourceData}
 import empathy.SourceData._
 import empathy.scoring.MegaScorer
@@ -28,6 +31,20 @@ object Recover extends App {
   val explaination = ff.explainRows(sd.mixed_data, w, Config.scoreGrouping)
 
   println(explaination)
+
+  val explainFile = new File(Config.explainFilename)
+  val writer = CSVWriter.open(explainFile)
+
+  val headers:List[String] = "Company" :: explaination.valuesIterator.next().keys.toList
+  writer.writeRow(headers)
+
+  explaination.foreach{
+    case (s: String, exp: RankingFitness#RowExplaination) => {
+      val row:List[Any] = s :: exp.values.toList
+      writer.writeRow(row)
+    }
+  }
+
 
   println(w)
 

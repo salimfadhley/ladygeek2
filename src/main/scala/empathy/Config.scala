@@ -15,10 +15,9 @@ object Config {
   val scoreGrouping:Map[String,Set[String]] = Map(
     "Survey"->Set("ygl_skips","ygl_answers", "ygl_average"),
     "Social"->Set("i_we_you", "empathic_words", "repetition", "half_hour_minute_response_rate", "stock_phrases", "five hour response rate", "ten_minute_response_rate"),
-    "EthicalEnvironmental"->Set("major_scandal", "carbon_sector_score", "carbon_country_score"),
+    "EthicalEnvironmental"->Set("proportion_women", "major_scandal", "carbon_sector_score", "carbon_country_score"),
     "CorporateCulture"->Set("glassdoor_comp","glassdoor_opportunity", "glassdoor_values", "glassdoor_friend", "glassdoor_balance"),
-    "CorporateLeadership"->Set("ceo_vs_market_cap", "glassdoor_ceo", "glassdoor_leadership"),
-    "Gender"->Set("proportion_women")
+    "CorporateLeadership"->Set("ceo_vs_market_cap", "glassdoor_ceo", "glassdoor_leadership")
   )
 
   def weighting_filename(score:Double) = {
@@ -30,5 +29,7 @@ object Config {
     val sc:String = f"$score%1.3f"
     s"d_${timestamp}_${sc}_.txt"
   }
+
+  def explainFilename = s"${resourceDir}explain.csv"
 
 }
