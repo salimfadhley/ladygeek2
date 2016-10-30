@@ -15,7 +15,7 @@ class ExplainSpec extends FlatSpec with Matchers {
 
     val rf = new RankingFitness((strings: List[String]) =>0.0)
 
-    val result:Map[String,Double] = rf.explainRows(row=row, weightings=w, explainMap=g)
+    val result:Map[String,Double] = rf.explainRow(row=row, weightings=w, explainMap=g)
     assert(result==Map("xx"->5.0))
   }
 
@@ -26,7 +26,7 @@ class ExplainSpec extends FlatSpec with Matchers {
 
     val rf = new RankingFitness((strings: List[String]) =>0.0)
 
-    val result:Map[String,Double] = rf.explainRows(row=row, weightings=w, explainMap=g)
+    val result:Map[String,Double] = rf.explainRow(row=row, weightings=w, explainMap=g)
     assert(result==Map("xx"->5.0, "yy"->0.0))
   }
 

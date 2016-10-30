@@ -2,20 +2,35 @@ package empathy
 
 import empathy.SourceData.MixedData
 import empathy.weight.Weightings
-
 import scala.collection.immutable.Map
 
 /**
   * Created by salim on 21/10/2016.
   */
 class RankingFitness(scoringFunction:(List[String])=>Double) {
-  def explainRows(row: Map[String,Double], weightings: Weightings, explainMap:Map[String,Set[String]]): Map[String,Double] = {
+
+  type ExplainMap = Map[String,Set[String]]
+  type RowExplaination = Map[String,Double]
+  type RowsExplaination = Map[String,RowExplaination]
+
+
+  def explainRow(row: Map[String,Double], weightings: Weightings, explainMap:ExplainMap): RowExplaination = {
     val columnScores:Map[String,Double] = weightings.calculateColumnScores(row)
     explainMap.map{
       case (groupName: String, columnNames: Set[String]) => {
         (groupName, columnNames.map(columnScores(_)).sum)
       }
     }
+  }
+
+  def explainRows(rows:MixedData, weightings: Weightings, explainMap:ExplainMap): RowsExplaination = {
+
+    rows.map {
+      case (s: String, row: Map[String, Double]) => {
+        (s, explainRow(row, weightings, explainMap))
+      }
+    }
+
   }
 
 

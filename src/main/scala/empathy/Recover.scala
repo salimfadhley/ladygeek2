@@ -1,7 +1,9 @@
-import empathy.{Evolver, Main, RankingFitness, SourceData}
+import empathy.{Config, Evolver, Main, RankingFitness, SourceData}
 import empathy.SourceData._
 import empathy.scoring.MegaScorer
 import empathy.weight.{MutateOTron, Weightings}
+
+import scala.collection.immutable.Map
 
 object Recover extends App {
 
@@ -23,11 +25,9 @@ object Recover extends App {
 
   Main.writeRanking("x_recalc.txt", ranking)
 
+  val explaination = ff.explainRows(sd.mixed_data, w, Config.scoreGrouping)
 
-
-
-
-
+  println(explaination)
 
   println(w)
 
